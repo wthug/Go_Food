@@ -34,10 +34,18 @@ const Login = () => {
         }
     }
     return <>
+        <nav className="navbar navbar-expand-lg navbar-dark ">
+            <div className="container-fluid">
+                <Link className="navbar-brand fs-4 fst-italic bg-white text-success btn" to="/">GoodFood</Link>
+                <Link className="navbar-brand fs-4 ">LogIn Page</Link>
+                <Link className="btn bg-white text-success mx-1" to="/signup">SignUp</Link>
+            </div>
+        </nav>
+
         <div className="container">
+            
             <form onSubmit={HandleSubmit}>
                 
-
                 <div className="mb-3">
                     <label for="exampleInputEmail1" className="form-label">Email address</label>
                     <input type="text" className="form-control" id="exampleInputEmail1"  value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
@@ -46,7 +54,6 @@ const Login = () => {
                     <label for="exampleInputPassword1" className="form-label">Password</label>
                     <input type="password" className="form-control" id="exampleInputPassword1" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
                 </div>
-                
                 
                 <button type="submit" className="btn btn-primary" >Submit</button>
                 <Link to='/signup' className="m-3 btn btn-primary">Create an account</Link>

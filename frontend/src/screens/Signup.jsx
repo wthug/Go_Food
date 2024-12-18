@@ -38,6 +38,13 @@ const SignUp = () => {
 
     }
     return <>
+        <nav className="navbar navbar-expand-lg navbar-dark ">
+            <div className="container-fluid">
+                <Link className="navbar-brand fs-4 fst-italic bg-white text-success btn " to="/">GoodFood</Link>
+                <Link className="navbar-brand fs-4 ">SignUp Page</Link>
+                <Link className="btn bg-white text-success mx-1" to="/login">LogIn</Link>
+            </div>
+        </nav>
         <div className="container">
             <form onSubmit={HandleSubmit}>
                 <div className="mb-3 " >
