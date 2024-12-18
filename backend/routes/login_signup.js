@@ -42,7 +42,7 @@ router.post('/creatuser',[
 // for logging in
 router.post('/loginuser',[
     body('email','not a valid e-mail').isEmail(),
-],async(req,res)=>{
+    ],async(req,res)=>{
     const err=validationResult(req)
     if(!err.isEmpty()){
         console.log('invalide data')
