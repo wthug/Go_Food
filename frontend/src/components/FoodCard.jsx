@@ -6,8 +6,8 @@ const FoodCard = (props) => {
     const options= props.food.options[0];
     const priceOption = Object.keys(options);
     return <>
-        <div className="card m-2 " style={{"height": "21rem"}}>
-            <img className="card-img-top" src={imgUrl} alt="Card image cap" style={{"height":"70%", "objectFit":"fill"}}/>
+        <div className="card m-2 " style={{}}>
+            <img className="card-img-top" src={imgUrl} alt="Card image cap" style={{"height":"12rem", "objectFit":"fill"}}/>
             <div className="card-body">
                 <h5 className="card-title">{name}</h5>
                 <div className=" w-100">
@@ -29,6 +29,8 @@ const FoodCard = (props) => {
                     <div className="d-inline h-100 fs-5">
                         1500
                     </div>
+                    <hr />
+                    <button className="btn bg-success text-white">Add to cart</button>
                 </div>
             </div>
         </div> 
