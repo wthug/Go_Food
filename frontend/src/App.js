@@ -6,33 +6,34 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
 import SignUp from "./screens/Signup.jsx";
 import Cart from "./screens/Cart.jsx";
+import {CartProvider} from "./components/Contextreducer.jsx";
 
 
 function App() {
-  return <div className="App">
-  <BrowserRouter>
-    <div className='pages'>
-      <Routes>
-        <Route
-          path="/"  
-          element={<Home/>}
-        />
-        <Route
-          path="/login"
-          element={<Login/>}
-        />
-        <Route
-          path="/signup"
-          element={<SignUp/>}
-        />
-        <Route
-          path="/cart"
-          element={<Cart/>}
-        />
-      </Routes>
-    </div>
-  </BrowserRouter>
-  </div>
+  return (
+    <CartProvider>
+      <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"  
+              element={<Home/>}
+            />
+            <Route
+              path="/login"
+              element={<Login/>}
+            />
+            <Route
+              path="/signup" 
+              element={<SignUp/>}
+            />
+            <Route
+              path="/cart"
+              element={<Cart/>}
+            />
+          </Routes>
+      </BrowserRouter>
+    </CartProvider>
+  )
 }
 
 export default App;

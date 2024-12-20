@@ -35,7 +35,7 @@ const Home = () => {
                     {
                         foodItems != []
                         ? foodItems.filter((item,index)=>(index%2==0)).map((foodItem,index)=>{
-                            console.log(index);
+                            
                             return(
                                 <div className="carousel-item">
                                 <img src={foodItem.img} className="d-block w-100" alt="..." style={{"max-height":"34rem"}}/>

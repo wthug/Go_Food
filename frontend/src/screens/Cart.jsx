@@ -1,10 +1,9 @@
 import { Link  } from "react-router-dom"
-
+import FoodCardCart from "../components/FoodCardCart";
+import { useDispatchCard ,useCart} from "../components/Contextreducer";
 const Cart = () => {
-    const handleLogout = () => {
-        localStorage.removeItem("authToken");
-
-    }
+    const data= useCart();
+    console.log(data);
     return<>
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-success">
@@ -29,8 +28,23 @@ const Cart = () => {
                     </ul>
                 </div>
                 </div>
-            </nav>
-
+            </nav>  
+            <div className="row mb-3" >
+                {
+                    data != []
+                    ? data.map((foodItem)=>{
+                        return(
+                            <div className="col-12 col-md-6 col-lg-3">
+                            <FoodCardCart
+                                key={foodItem.id}
+                                food={foodItem}
+                            />
+                            </div>
+                        )
+                    })
+                    : "No food Items"
+                }
+                </div>
 
         </div>
     </>
