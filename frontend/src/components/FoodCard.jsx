@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDispatchCard ,useCart} from "./Contextreducer";
+import { useCart, useDispatchCard } from "./Contextreducer";
 
 const FoodCard = (props) => {
     const name=props.food.name;
@@ -9,13 +9,23 @@ const FoodCard = (props) => {
     const [qty,setQty] = useState(1);
     const [size,setSize] = useState(priceOption[0]);
     let dispatch = useDispatchCard();
-
     let data = useCart();
-
     const finalPrice = qty * parseInt(options[size]);
     const handleAddToCart = async() =>{
-        await dispatch({type:"ADD" , id:props.food._id ,name:name ,price:finalPrice,qty:qty,size:size , img:imgUrl});
-        console.log(data);
+        let ind=-1;
+        data.map((item,index)=>{
+            if(item.id===props.food._id && item.size===size){
+                ind=index;
+                console.log(index);
+            } 
+        })
+        if(ind!==-1){
+            await dispatch({type:"UPDATE" ,id:props.food._id,price:finalPrice,qty:qty,index:ind});
+        }else{
+            console.log("yes")
+            await dispatch({type:"ADD" , id:props.food._id ,name:name ,price:finalPrice,qty:qty,size:size , img:imgUrl});
+    
+        }
     }
 
     return <>

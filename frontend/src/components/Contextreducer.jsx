@@ -6,7 +6,18 @@ const CartDispatchContext = createContext();
 const reducer = (state,action)=>{
     switch(action.type){
         case "ADD":
-            return [...state,{id:action.id ,name:action.name , qty:action.qty , size:action.size , price:action.price , img:action.img}];
+            console.log(action)
+            return [...state,{id:action.id ,name:action.name , qty: parseInt(action.qty) , size:action.size , price:action.price , img:action.img}];
+        case "DELETE":
+            let arr=[...state];
+            return arr.filter((item)=>(item.id!==action.id) || (item.size!==action.size)); 
+        case "UPDATE":
+            let Arr=[...state];
+            const index=action.index;
+            Arr[index]= {...Arr[index], qty: parseInt(action.qty)+Arr[index].qty,price:action.price+Arr[index].price};
+            console.log(Arr[index]);
+            return Arr;
+
         default:
             console.log("problem accured");
     }

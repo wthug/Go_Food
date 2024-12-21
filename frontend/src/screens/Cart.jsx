@@ -3,7 +3,6 @@ import FoodCardCart from "../components/FoodCardCart";
 import { useDispatchCard ,useCart} from "../components/Contextreducer";
 const Cart = () => {
     const data= useCart();
-    console.log(data);
     return<>
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-success">
