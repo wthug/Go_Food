@@ -3,6 +3,8 @@ import { Link  } from "react-router-dom"
 const Navbar = () => {
     const handleLogout = () => {
         localStorage.removeItem("authToken");
+        localStorage.removeItem("authEmail")
+
 
     }
     return<>

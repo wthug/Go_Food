@@ -17,7 +17,9 @@ const reducer = (state,action)=>{
             Arr[index]= {...Arr[index], qty: parseInt(action.qty)+Arr[index].qty,price:action.price+Arr[index].price};
             console.log(Arr[index]);
             return Arr;
-
+        case "DROP":
+            let emptyArr=[];
+            return emptyArr;
         default:
             console.log("problem accured");
     }

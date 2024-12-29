@@ -29,7 +29,8 @@ const Login = () => {
             setEmail('');
             setPassword('');
             localStorage.setItem('authToken',json.authToken);
-            console.log(localStorage.getItem('authToken'));
+            localStorage.setItem('authEmail',email);
+            console.log(localStorage.getItem('authEmail'));
             nevigate('/')
         }
     }

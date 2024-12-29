@@ -4,6 +4,7 @@ const app = express()
 const userRoutes = require('./routes/login_signup') 
 const mongoose = require('mongoose')  
 const getRoutes = require('./routes/get')
+const orderRoutes = require('./routes/order_data')
 
 app.use(express.json())
 
@@ -13,6 +14,7 @@ app.use((req,res,next)=>{
 })
 app.use('/api',userRoutes)
 app.use('/api',getRoutes)
+app.use('/api',orderRoutes)
 
 mongoose.connect(process.env.URI)
     .then(async ()=>{
