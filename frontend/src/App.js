@@ -7,6 +7,7 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
 import SignUp from "./screens/Signup.jsx";
 import Cart from "./screens/Cart.jsx";
 import {CartProvider} from "./components/Contextreducer.jsx";
+import MyOrder from "./screens/Myorders.jsx";
 
 
 function App() {
@@ -29,6 +30,10 @@ function App() {
             <Route
               path="/cart"
               element={<Cart/>}
+            />
+            <Route
+              path="/myOrders"
+              element={<MyOrder/>}
             />
           </Routes>
       </BrowserRouter>

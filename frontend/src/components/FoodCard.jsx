@@ -29,7 +29,7 @@ const FoodCard = (props) => {
     }
 
     return <>
-        <div className="card m-2 " style={{}}>
+        <div className="card m-2 " style={{"minWidth":"15rem" , "maxWidth":"20rem"}}>
             <img className="card-img-top" src={imgUrl} alt="Card image cap" style={{"height":"12rem", "objectFit":"fill"}}/>
             <div className="card-body">
                 <h5 className="card-title">{name}</h5>

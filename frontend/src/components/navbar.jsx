@@ -1,12 +1,8 @@
 import { Link  } from "react-router-dom"
+import Logout from "./Logout"
 
 const Navbar = () => {
-    const handleLogout = () => {
-        localStorage.removeItem("authToken");
-        localStorage.removeItem("authEmail")
-
-
-    }
+    
     return<>
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-success">
@@ -23,7 +19,7 @@ const Navbar = () => {
                         </li>
                         {(localStorage.getItem("authToken")) ? 
                             <li className="nav-item active">
-                                <Link className="nav-link active fs-5" to="/">My Orders</Link>
+                                <Link className="nav-link active fs-5" to="/myOrders">My Orders</Link>
                             </li>
                             : ""
                         }
@@ -37,7 +33,7 @@ const Navbar = () => {
                             :
                             <>
                             <Link className="btn bg-white text-success mx-1" to="/cart">Cart</Link>
-                            <Link className="btn bg-white text-danger mx-1" to="/login"  onClick={handleLogout}>Logout</Link>
+                            <Logout/>
                             </>
                         }
                     </div>

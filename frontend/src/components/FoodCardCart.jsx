@@ -15,7 +15,7 @@ const FoodCardCart=(props)=>{
                         Quantity : {props.food.qty}
                     </div>
                     <div className="h-100 fs-5" >
-                        Option : { props.food.size }
+                        Size : { props.food.size }
                         
                     </div>
                     <div className="h-100 fs-5">

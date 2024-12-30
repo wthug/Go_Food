@@ -1,6 +1,8 @@
 import { Link  } from "react-router-dom"
+import Footer from "../components/footer"
 import FoodCardCart from "../components/FoodCardCart";
 import { useDispatchCard ,useCart} from "../components/Contextreducer";
+import Logout from "../components/Logout";
 const Cart = () => {
     const data= useCart();
     
@@ -34,7 +36,6 @@ const Cart = () => {
             <nav className="navbar navbar-expand-lg navbar-dark bg-success">
                 <div className="container-fluid">
 
-                
                 <Link className="navbar-brand fs-4 fst-italic" to="/">GoodFood</Link>
                 <button className="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -45,9 +46,10 @@ const Cart = () => {
                             <Link className="nav-link active fs-5" to="/">Home</Link>
                         </li>
                         <li className="nav-item active">
-                            <Link className="nav-link active fs-5" to="/">My Orders</Link>
+                            <Link className="nav-link active fs-5" to="/myOrders">My Orders</Link>
                         </li>
                     </ul>
+                    <Logout/>
                     
                 </div>
                 </div>
@@ -56,7 +58,7 @@ const Cart = () => {
             
             {
                 data.length !== 0 
-                ? <div className="row mb-3" >
+                ? <div className="row mb-3" style={{"min-height":"38rem"}}>
                     {
                         data.map((foodItem)=>{
                             return(
@@ -70,17 +72,17 @@ const Cart = () => {
                         })
                     }
                     <hr />
-                    <div className="d-flex m-3">
+                    <div className="d-flex mx-3 " style={{"height":"3rem"}} >
+                        
                         <div className="fs-3"><b>Total :  {totalPrice}/-</b></div>
                         <button className="btn bg-white text-success mx-3" onClick={handleCheckout}>Check Out</button>   
                     </div>
                 </div>
-                :<div className="text-center my-5">
+                :<div className="text-center my-5" style={{"min-height":"33rem"}}>
                     <h4>The cart is empty</h4>
                 </div>
             }
-
-
+            <Footer/>
         </div>
     </>
 }
