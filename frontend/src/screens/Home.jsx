@@ -29,7 +29,7 @@ const Home = () => {
             <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active ">
-                    <img src="https://media.istockphoto.com/photos/chinese-food-veg-pizza-picture-id1341905237?k=20&m=1341905237&s=612x612&w=0&h=Lbuza1Ig5cC1PwQhqTsq-Uac8hg1W-V0Wx4d4lqDeB0=" className="d-block w-100" alt="..." style={{"max-height":"34rem"}}/>
+                    <img src="https://media.istockphoto.com/photos/chinese-food-veg-pizza-picture-id1341905237?k=20&m=1341905237&s=612x612&w=0&h=Lbuza1Ig5cC1PwQhqTsq-Uac8hg1W-V0Wx4d4lqDeB0=" className="d-block w-100" alt="..." style={{"max-height":"35rem"}}/>
                     </div>
                     
                     {
@@ -38,7 +38,7 @@ const Home = () => {
                             
                             return(
                                 <div className="carousel-item">
-                                <img src={foodItem.img} className="d-block w-100" alt="..." style={{"max-height":"34rem"}}/>
+                                <img src={foodItem.img} className="d-block w-100" alt="..." style={{"max-height":"35rem"}}/>
                                 </div>
                             )
                         })

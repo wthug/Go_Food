@@ -4,7 +4,7 @@ import { Link ,useNavigate } from "react-router-dom";
 const Login = () => {
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
-    const [error,setError] = useState(null);
+    const [error,setError] = useState("");
     let nevigate = useNavigate();
     const HandleSubmit = async(e)=>{
         e.preventDefault()
@@ -20,17 +20,14 @@ const Login = () => {
 
         const json = await response.json();
         if(!response.ok){
-            console.log(json.error)
             setError(json.error)
         }
         if(response.ok){
-            console.log('user login successfully:',json)
             setError(null)
             setEmail('');
             setPassword('');
             localStorage.setItem('authToken',json.authToken);
             localStorage.setItem('authEmail',email);
-            console.log(localStorage.getItem('authEmail'));
             nevigate('/')
         }
     }
@@ -58,8 +55,15 @@ const Login = () => {
                 
                 <button type="submit" className="btn btn-primary" >Submit</button>
                 <Link to='/signup' className="m-3 btn btn-primary">Create an account</Link>
-                {/* {error && <div >{error}</div>} */}
+                
             </form>
+            {
+                error!=""
+                ?<div className="text-danger mt-3 btn border-danger w-100 fs-5">
+                    {error}
+                </div>
+                :""    
+            }
         </div>
     </>
     

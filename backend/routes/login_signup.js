@@ -14,10 +14,15 @@ router.post('/creatuser',[
     body('email','not a valid e-mail').isEmail(),
     body('password','password must be of minimum 5 characters').isLength({ min: 5})
 ],async(req,res)=>{
+    if(req.body.name=="" || req.body.email=="" || req.body.password=="" || req.body.location==""){
+        res.status(400).json({error:"Fill out all the fields"});
+        return;
+    }
     const err=validationResult(req)
+    
     if(!err.isEmpty()){
         console.log('invalide data')
-        return res.status(400).json({ error:err.array()})
+        return res.status(400).json({ error:err.array()[0].msg})
     }
     const {name,email,location} =req.body
     const salt = await bcrypt.genSalt(10);
